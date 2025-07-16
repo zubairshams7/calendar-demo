@@ -17,12 +17,13 @@ export default function DateRangeCalendar({
   const safeStart = initialStart instanceof Date ? initialStart : new Date();
   const safeEnd = initialEnd instanceof Date ? initialEnd : new Date();
 
-  const [mode, setMode] = useState("dates");
-  const [selection, setSelection] = useState({
-    startDate: safeStart,
-    endDate: safeEnd,
-    key: "selection",
-  });
+const [selection, setSelection] = useState({
+  startDate: safeStart,
+  endDate: safeEnd,
+  key: "selection",
+  color: color, // 👈 this line is required for rendering
+});
+
 
   const handleSelect = (ranges) => {
     const { startDate, endDate } = ranges.selection;
